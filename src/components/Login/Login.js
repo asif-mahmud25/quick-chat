@@ -6,16 +6,16 @@ import bottomSideArt from "../../assets/bottom-login-art.svg";
 
 const Login = () => {
   return (
-    <div>
-      <div>
+    <div className={style.login}>
+      <div className={style.loginMain}>
         <img src={primaryLogo} />
         <h1>Quick Chat</h1>
         <button>Sign in with Google</button>
       </div>
-      <div>
+      <div className={style.decorationTop}>
         <img src={topSideArt} />
       </div>
-      <div>
+      <div className={style.decorationBottom}>
         <img src={bottomSideArt} />
       </div>
     </div>
