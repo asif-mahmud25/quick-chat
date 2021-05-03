@@ -4,10 +4,12 @@ import roomIcon from "../../assets/room-icon.svg";
 
 const Room = () => {
   return (
-    <div>
+    <div className={style.room}>
       <img src={roomIcon} alt="" />
-      <h2>Dev Room</h2>
-      <p>Last active: 12:30pm, 21Mar</p>
+      <div>
+        <h2>Dev Room</h2>
+        <p>Last active: 12:30pm, 21Mar</p>
+      </div>
     </div>
   );
 };
