@@ -8,15 +8,15 @@ const Login = () => {
   return (
     <div className={style.login}>
       <div className={style.loginMain}>
-        <img src={primaryLogo} />
+        <img src={primaryLogo} alt="" />
         <h1>Quick Chat</h1>
         <button className={style.ripple}>Sign in with Google</button>
       </div>
       <div className={style.decorationTop}>
-        <img src={topSideArt} />
+        <img src={topSideArt} alt="" />
       </div>
       <div className={style.decorationBottom}>
-        <img src={bottomSideArt} />
+        <img src={bottomSideArt} alt="" />
       </div>
     </div>
   );
