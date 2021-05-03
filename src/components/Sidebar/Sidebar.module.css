@@ -1,0 +1,73 @@
+.sidebar {
+  width: 100%;
+  height: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 60px;
+  margin-bottom: 34px;
+}
+
+.logo img {
+  width: 50px;
+  margin-right: 16px;
+}
+
+.logo h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: black;
+}
+
+.userSection {
+  width: 100%;
+  height: 260px;
+  background-color: #f3f6fb;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 34px;
+}
+
+.userSection img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+.userSection h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+  margin-top: 30px;
+  margin-bottom: 4px;
+}
+
+.userSection p {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  color: #eb3621;
+}
+
+.userInfo {
+  width: 100%;
+  height: fit-content;
+}
+
+.addRoom {
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 20px;
+}
