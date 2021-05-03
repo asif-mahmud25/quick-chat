@@ -21,14 +21,14 @@ const Sidebar = () => {
       <h1 className={style.addRoom}>Add New Room</h1>
       <div className={style.roomContainer}>
         <Room />
+        {/* <Room />
         <Room />
         <Room />
         <Room />
         <Room />
         <Room />
         <Room />
-        <Room />
-        <Room />
+        <Room /> */}
       </div>
     </div>
   );

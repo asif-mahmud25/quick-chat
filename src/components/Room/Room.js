@@ -8,7 +8,7 @@ const Room = () => {
       <img src={roomIcon} alt="" />
       <div>
         <h2>Dev Room</h2>
-        <p>Last active: 12:30pm, 21Mar</p>
+        <p>Active at: 12:30pm, 21Mar</p>
       </div>
     </div>
   );

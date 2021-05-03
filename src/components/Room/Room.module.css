@@ -30,3 +30,9 @@
   font-size: 16px;
   color: black;
 }
+
+@media (max-width: 1600px) {
+  .room {
+    padding: 12px 12px;
+  }
+}
