@@ -3,12 +3,14 @@ import style from "./Chat.module.css";
 
 const Chat = () => {
   return (
-    <div>
+    <div className={style.chat}>
       <h1>Dev Room</h1>
-      <div></div>
-      <div>
-        <input type="text" />
-        <button>Send</button>
+      <div className={style.chatBox}></div>
+      <div className={style.inputBoxContainer}>
+        <div className={style.inputBox}>
+          <input type="text" placeholder="Enter your message here" />
+          <button>Send</button>
+        </div>
       </div>
     </div>
   );

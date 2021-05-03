@@ -1,4 +1,5 @@
 import React from "react";
+import Chat from "../Chat/Chat";
 import Sidebar from "../Sidebar/Sidebar";
 import style from "./Layout.module.css";
 
@@ -9,7 +10,7 @@ const Layout = () => {
         <Sidebar />
       </div>
       <div className={style.chatContainer}>
-        <p>hello</p>
+        <Chat />
       </div>
     </div>
   );

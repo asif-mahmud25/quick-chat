@@ -1,0 +1,77 @@
+.chat {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 36px;
+  padding-right: 40px;
+}
+
+.chat h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: black;
+  margin-top: 60px;
+  margin-bottom: 44px;
+}
+
+.chatBox {
+  width: 100%;
+  flex: 1;
+  background-color: #f3f6fb;
+  border-radius: 30px 30px 0px 0px;
+}
+
+.inputBoxContainer {
+  width: 100%;
+  padding: 24px 34px;
+  background-color: #f3f6fb;
+  border-radius: 0px 0px 30px 30px;
+}
+
+.inputBox {
+  width: 100%;
+  height: 100px;
+  border-radius: 16px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 20px;
+  box-shadow: 0px 2px 12px rgba(128, 128, 128, 0.16);
+}
+
+.inputBox input {
+  flex: 1;
+  height: 54px;
+  border: 1px solid #aaaaaa;
+  border-radius: 10px;
+  font-size: 18px;
+  color: black;
+  padding-left: 20px;
+  outline: none;
+}
+
+.inputBox input::placeholder {
+  color: #aaaaaa;
+}
+
+.inputBox button {
+  width: 120px;
+  height: 54px;
+  background-color: #004dfb;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+@media (max-width: 1600px) {
+  .chat {
+    padding-bottom: 16px;
+    padding-right: 20px;
+  }
+}
