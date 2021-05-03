@@ -2,6 +2,7 @@ import React from "react";
 import style from "./Sidebar.module.css";
 import secondaryLogo from "../../assets/secondary-logo.svg";
 import userImg from "../../assets/room-icon.svg";
+import Room from "../Room/Room";
 
 const Sidebar = () => {
   return (
@@ -16,7 +17,12 @@ const Sidebar = () => {
         <p>Logout</p>
       </div>
       <h1>Add New Room</h1>
-      <div>{/* room component */}</div>
+      <div>
+        <Room />
+        <Room />
+        <Room />
+        <Room />
+      </div>
     </div>
   );
 };
