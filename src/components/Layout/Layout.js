@@ -4,11 +4,13 @@ import style from "./Layout.module.css";
 
 const Layout = () => {
   return (
-    <div>
-      <div>
+    <div className={style.layout}>
+      <div className={style.sidebarContainer}>
         <Sidebar />
       </div>
-      <div>{/* Chat component */}</div>
+      <div className={style.chatContainer}>
+        <p>hello</p>
+      </div>
     </div>
   );
 };

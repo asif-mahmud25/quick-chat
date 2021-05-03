@@ -1,0 +1,19 @@
+.layout {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sidebarContainer {
+  flex: 0.33;
+  max-width: 480px;
+  height: 100%;
+}
+
+.chatContainer {
+  flex: 1;
+  height: 100%;
+  background-color: blue;
+}
