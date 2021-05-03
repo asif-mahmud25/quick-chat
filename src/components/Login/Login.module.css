@@ -70,3 +70,18 @@
   display: block;
   width: 320px;
 }
+
+/* Button Ripple effect */
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #004dfb radial-gradient(circle, transparent 1%, #004dfb 1%)
+    center/15000%;
+}
+.ripple:active {
+  background-color: #4d83ff;
+  background-size: 100%;
+  transition: background 0s;
+}

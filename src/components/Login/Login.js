@@ -10,7 +10,7 @@ const Login = () => {
       <div className={style.loginMain}>
         <img src={primaryLogo} />
         <h1>Quick Chat</h1>
-        <button>Sign in with Google</button>
+        <button className={style.ripple}>Sign in with Google</button>
       </div>
       <div className={style.decorationTop}>
         <img src={topSideArt} />
