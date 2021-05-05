@@ -1,13 +1,15 @@
 import React from "react";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
-import Login from "./components/Login/Login";
+import { AppContextProvider } from "./AppContext";
 
 function App() {
   return (
-    <div>
-      <Layout />
-    </div>
+    <AppContextProvider>
+      <div>
+        <Layout />
+      </div>
+    </AppContextProvider>
   );
 }
 
