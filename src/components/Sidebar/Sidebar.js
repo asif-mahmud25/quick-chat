@@ -4,9 +4,20 @@ import secondaryLogo from "../../assets/secondary-logo.svg";
 import userImg from "../../assets/room-icon.svg";
 import Room from "../Room/Room";
 import { AppContext } from "../../AppContext";
+import { auth } from "../../firebase";
 
 const Sidebar = () => {
   const [user, setUser] = useContext(AppContext);
+
+  const logout = () => {
+    auth.signOut();
+    setUser({
+      uid: null,
+      name: "",
+      photo: "",
+      email: "",
+    });
+  };
 
   return (
     <div className={style.sidebar}>
@@ -18,7 +29,7 @@ const Sidebar = () => {
         <div className={style.userInfo}>
           <img src={user.photo} alt="User Image" />
           <h1>{user.name}</h1>
-          <p>Logout</p>
+          <p onClick={logout}>Logout</p>
         </div>
       </div>
       <h1 className={style.addRoom}>Add New Room</h1>
