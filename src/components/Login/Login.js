@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./Login.module.css";
 import primaryLogo from "../../assets/primary-logo.svg";
 import topSideArt from "../../assets/top-login-art.svg";
 import bottomSideArt from "../../assets/bottom-login-art.svg";
 import { auth, provider } from "../../firebase";
+import { AppContext } from "../../AppContext";
 
 const Login = () => {
-  const login = () => {
+  const [user, setUser] = useContext(AppContext);
+
+  const userLogin = () => {
     auth
       .signInWithPopup(provider)
-      .then((res) => console.log(res.user.displayName))
+      .then((res) => {
+        console.log(res);
+        setUser({
+          uid: res.user.uid,
+          name: res.user.displayName,
+          photo: res.user.photoURL,
+          email: res.user.email,
+        });
+      })
       .catch((err) => console.log(err));
   };
 
@@ -18,7 +29,7 @@ const Login = () => {
       <div className={style.loginMain}>
         <img src={primaryLogo} alt="" />
         <h1>Quick Chat</h1>
-        <button className={style.ripple} onClick={login}>
+        <button className={style.ripple} onClick={userLogin}>
           Sign in with Google
         </button>
       </div>
