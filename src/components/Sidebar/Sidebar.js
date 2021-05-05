@@ -1,14 +1,37 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./Sidebar.module.css";
 import secondaryLogo from "../../assets/secondary-logo.svg";
 import userImg from "../../assets/room-icon.svg";
 import Room from "../Room/Room";
 import { AppContext } from "../../AppContext";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 
 const Sidebar = () => {
   const [user, setUser] = useContext(AppContext);
 
+  const [rooms, setRooms] = useState([]);
+
+  //Attaching firebase realtime db listener
+  useEffect(() => {
+    db.collection("rooms").onSnapshot((snapshot) => {
+      let roomData = snapshot.docs.map((el) => {
+        return {
+          id: el.id,
+          data: el.data(),
+        };
+      });
+
+      setRooms(roomData);
+      console.log(roomData);
+    });
+  }, []);
+
+  //Rooms with data from firebase db
+  let roomsDisplay = rooms.map((el) => {
+    return <Room key={el.id} name={el.data.name} />;
+  });
+
+  //Logout funtion
   const logout = () => {
     auth.signOut();
 
@@ -38,17 +61,7 @@ const Sidebar = () => {
         </div>
       </div>
       <h1 className={style.addRoom}>Add New Room</h1>
-      <div className={style.roomContainer}>
-        <Room />
-        <Room />
-        <Room />
-        <Room />
-        <Room />
-        <Room />
-        <Room />
-        <Room />
-        <Room />
-      </div>
+      <div className={style.roomContainer}>{roomsDisplay}</div>
     </div>
   );
 };
