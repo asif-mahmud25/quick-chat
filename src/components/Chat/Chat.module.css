@@ -69,6 +69,10 @@
   color: #aaaaaa;
 }
 
+.inputBox input:focus {
+  border: 2px solid #aaaaaa;
+}
+
 .inputBox button {
   width: 120px;
   height: 54px;

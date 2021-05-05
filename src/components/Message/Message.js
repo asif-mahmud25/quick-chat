@@ -23,10 +23,7 @@ const Message = (props) => {
       <div>
         <div className={messageTxtWrapper}>
           <p className={senderName}>Sayem Hasan</p>
-          <p className={messageTxt}>
-            Es un hecho establecido hace demasiado tiempo que un lector se
-            distraerá con el contenido
-          </p>
+          <p className={messageTxt}>Hello there I am Asif Mahmud</p>
           <p className={timeStamp}>12:30pm, 21 Mar</p>
         </div>
       </div>

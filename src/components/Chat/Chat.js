@@ -14,8 +14,10 @@ const Chat = () => {
       </div>
       <div className={style.inputBoxContainer}>
         <div className={style.inputBox}>
-          <input type="text" placeholder="Enter your message here" />
-          <button>Send</button>
+          <form>
+            <input type="text" placeholder="Enter your message here" />
+            <button type="submit">Send</button>
+          </form>
         </div>
       </div>
     </div>
