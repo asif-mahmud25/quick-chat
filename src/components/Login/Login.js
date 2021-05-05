@@ -14,12 +14,19 @@ const Login = () => {
       .signInWithPopup(provider)
       .then((res) => {
         console.log(res);
-        setUser({
+
+        let userData = {
           uid: res.user.uid,
           name: res.user.displayName,
           photo: res.user.photoURL,
           email: res.user.email,
-        });
+        };
+
+        //Setting user info to sessionStorage
+        sessionStorage.setItem("user", JSON.stringify(userData));
+
+        //Setting the state to have user data
+        setUser(userData);
       })
       .catch((err) => console.log(err));
   };

@@ -11,12 +11,17 @@ const Sidebar = () => {
 
   const logout = () => {
     auth.signOut();
+
+    //Setting the state to initial state
     setUser({
       uid: null,
       name: "",
       photo: "",
       email: "",
     });
+
+    //Remove user data from session storage
+    sessionStorage.removeItem("user");
   };
 
   return (

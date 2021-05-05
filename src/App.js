@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
-import { AppContextProvider } from "./AppContext";
+import Login from "./components/Login/Login";
+import { AppContext } from "./AppContext";
 
 function App() {
-  return (
-    <AppContextProvider>
-      <div>
-        <Layout />
-      </div>
-    </AppContextProvider>
-  );
+  const [user, setUser] = useContext(AppContext);
+
+  let appDisplay = <Login />;
+
+  if (user.uid) {
+    appDisplay = <Layout />;
+  }
+
+  return <div>{appDisplay}</div>;
 }
 
 export default App;
