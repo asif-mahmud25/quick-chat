@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import style from "./Sidebar.module.css";
 import secondaryLogo from "../../assets/secondary-logo.svg";
-import userImg from "../../assets/room-icon.svg";
 import Room from "../Room/Room";
 import { AppContext } from "../../AppContext";
 import { auth, db } from "../../firebase";
