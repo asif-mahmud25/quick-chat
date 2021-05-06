@@ -74,6 +74,7 @@
   font-weight: 600;
   color: black;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .roomContainer {

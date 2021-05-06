@@ -4,11 +4,17 @@ import secondaryLogo from "../../assets/secondary-logo.svg";
 import Room from "../Room/Room";
 import { AppContext } from "../../AppContext";
 import { auth, db } from "../../firebase";
+import { ModalContext } from "../../ModalContext";
 
 const Sidebar = () => {
   const [user, setUser] = useContext(AppContext);
 
   const [rooms, setRooms] = useState([]);
+
+  //For modal state
+  const [roomModal, setRoomModal, logoutModal, setLogoutModal] = useContext(
+    ModalContext
+  );
 
   //Attaching firebase realtime db listener
   useEffect(() => {
@@ -46,6 +52,11 @@ const Sidebar = () => {
     sessionStorage.removeItem("user");
   };
 
+  //Add room modal appear
+  const addRoom = () => {
+    setRoomModal(true);
+  };
+
   return (
     <div className={style.sidebar}>
       <div className={style.logo}>
@@ -59,7 +70,9 @@ const Sidebar = () => {
           <p onClick={logout}>Logout</p>
         </div>
       </div>
-      <h1 className={style.addRoom}>Add New Room</h1>
+      <h1 className={style.addRoom} onClick={addRoom}>
+        Add New Room
+      </h1>
       <div className={style.roomContainer}>{roomsDisplay}</div>
     </div>
   );

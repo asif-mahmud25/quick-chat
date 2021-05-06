@@ -3,6 +3,7 @@ import "./App.css";
 import Layout from "./components/Layout/Layout";
 import Login from "./components/Login/Login";
 import { AppContext } from "./AppContext";
+import { ModalContextProvider } from "./ModalContext";
 
 function App() {
   const [user, setUser] = useContext(AppContext);
@@ -10,7 +11,11 @@ function App() {
   let appDisplay = <Login />;
 
   if (user.uid) {
-    appDisplay = <Layout />;
+    appDisplay = (
+      <ModalContextProvider>
+        <Layout />
+      </ModalContextProvider>
+    );
   }
 
   return <div>{appDisplay}</div>;
