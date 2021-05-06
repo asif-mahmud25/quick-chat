@@ -19,6 +19,7 @@
   width: 50px;
   display: block;
   margin-right: 20px;
+  border-radius: 50%;
 }
 
 .messageContainerUser img {

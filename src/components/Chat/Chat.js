@@ -43,6 +43,7 @@ const Chat = (props) => {
         .collection("rooms")
         .doc(roomId)
         .collection("messages")
+        .orderBy("timestamp", "asc")
         .onSnapshot((snapshot) => {
           setMessages(
             snapshot.docs.map((el) => {
@@ -77,19 +78,34 @@ const Chat = (props) => {
       photo: user.photo,
       email: user.email,
     });
+
+    setInputMsg("");
   };
 
   let displayMessages = messages.map((el) => {
-    return (
-      <Message
-        key={el.id}
-        msgFrom="other"
-        msg={el.data.message}
-        photo={el.data.photo}
-        name={el.data.name}
-        timestamp={el.data.timestamp}
-      />
-    );
+    if (el.data.email === user.email) {
+      return (
+        <Message
+          key={el.id}
+          msgFrom="user"
+          msg={el.data.message}
+          photo={el.data.photo}
+          name={el.data.name}
+          timestamp={el.data.timestamp}
+        />
+      );
+    } else {
+      return (
+        <Message
+          key={el.id}
+          msgFrom="other"
+          msg={el.data.message}
+          photo={el.data.photo}
+          name={el.data.name}
+          timestamp={el.data.timestamp}
+        />
+      );
+    }
   });
 
   //For test purpose

@@ -19,12 +19,14 @@ const Message = (props) => {
 
   return (
     <div className={messageContainer}>
-      <img src={userIcon} alt="" />
+      <img src={props.photo} alt="" />
       <div>
         <div className={messageTxtWrapper}>
-          <p className={senderName}>Sayem Hasan</p>
-          <p className={messageTxt}>Hello there I am Asif Mahmud</p>
-          <p className={timeStamp}>12:30pm, 21 Mar</p>
+          <p className={senderName}>{props.name}</p>
+          <p className={messageTxt}>{props.msg}</p>
+          <p className={timeStamp}>
+            {new Date(props.timestamp?.toDate()).toLocaleString()}
+          </p>
         </div>
       </div>
     </div>

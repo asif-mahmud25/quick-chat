@@ -18,17 +18,19 @@ const Sidebar = () => {
 
   //Attaching firebase realtime db listener
   useEffect(() => {
-    db.collection("rooms").onSnapshot((snapshot) => {
-      let roomData = snapshot.docs.map((el) => {
-        return {
-          id: el.id,
-          data: el.data(),
-        };
-      });
+    db.collection("rooms")
+      .orderBy("name", "asc")
+      .onSnapshot((snapshot) => {
+        let roomData = snapshot.docs.map((el) => {
+          return {
+            id: el.id,
+            data: el.data(),
+          };
+        });
 
-      setRooms(roomData);
-      console.log(roomData);
-    });
+        setRooms(roomData);
+        console.log(roomData);
+      });
   }, []);
 
   //Rooms with data from firebase db

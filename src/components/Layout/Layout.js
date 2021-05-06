@@ -15,7 +15,7 @@ const Layout = () => {
       <div className={style.chatContainer}>
         <Switch>
           <Route path="/room/:roomId" component={Chat} />
-          <Redirect to="/room/HCSelJsfO0LGASJeHkOm" />
+          <Redirect to="/room/NwNZZAWqerFg3v3LhMec" />
         </Switch>
       </div>
     </div>
