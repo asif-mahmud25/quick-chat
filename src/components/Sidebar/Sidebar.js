@@ -18,7 +18,8 @@ const Sidebar = () => {
 
   //Attaching firebase realtime db listener
   useEffect(() => {
-    db.collection("rooms")
+    const unsubscribe = db
+      .collection("rooms")
       .orderBy("name", "asc")
       .onSnapshot((snapshot) => {
         let roomData = snapshot.docs.map((el) => {
@@ -31,6 +32,10 @@ const Sidebar = () => {
         setRooms(roomData);
         console.log(roomData);
       });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   //Rooms with data from firebase db
