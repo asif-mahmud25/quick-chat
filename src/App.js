@@ -4,6 +4,7 @@ import Layout from "./components/Layout/Layout";
 import Login from "./components/Login/Login";
 import { AppContext } from "./AppContext";
 import { ModalContextProvider } from "./ModalContext";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useContext(AppContext);
@@ -13,7 +14,9 @@ function App() {
   if (user.uid) {
     appDisplay = (
       <ModalContextProvider>
-        <Layout />
+        <BrowserRouter>
+          <Layout />
+        </BrowserRouter>
       </ModalContextProvider>
     );
   }

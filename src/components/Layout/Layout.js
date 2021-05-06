@@ -3,6 +3,7 @@ import AddRoomModal from "../AddRoomModal/AddRoomModal";
 import Chat from "../Chat/Chat";
 import Sidebar from "../Sidebar/Sidebar";
 import style from "./Layout.module.css";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 const Layout = () => {
   return (
@@ -12,7 +13,10 @@ const Layout = () => {
         <Sidebar />
       </div>
       <div className={style.chatContainer}>
-        <Chat />
+        <Switch>
+          <Route path="/room/:roomId" component={Chat} />
+          <Redirect to="/room/HCSelJsfO0LGASJeHkOm" />
+        </Switch>
       </div>
     </div>
   );

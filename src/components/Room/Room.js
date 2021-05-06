@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./Room.module.css";
 import roomIcon from "../../assets/room-icon.svg";
+import { Link } from "react-router-dom";
 
 const Room = (props) => {
   let roomName = props.name;
@@ -11,13 +12,15 @@ const Room = (props) => {
   }
 
   return (
-    <div className={style.room}>
-      <img src={roomIcon} alt="" />
-      <div>
-        <h2>{roomName}</h2>
-        <p>Active at: 12:30pm, 21Mar</p>
+    <Link to={`/room/${props.id}`} className={style.links}>
+      <div className={style.room}>
+        <img src={roomIcon} alt="" />
+        <div>
+          <h2>{roomName}</h2>
+          <p>Active at: 12:30pm, 21Mar</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

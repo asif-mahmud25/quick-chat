@@ -33,7 +33,7 @@ const Sidebar = () => {
 
   //Rooms with data from firebase db
   let roomsDisplay = rooms.map((el) => {
-    return <Room key={el.id} name={el.data.name} />;
+    return <Room key={el.id} id={el.id} name={el.data.name} />;
   });
 
   //Logout funtion
