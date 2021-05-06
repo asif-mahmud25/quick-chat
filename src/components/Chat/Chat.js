@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Message from "../Message/Message";
 import style from "./Chat.module.css";
 import { useParams } from "react-router-dom";
@@ -6,7 +6,7 @@ import { db } from "../../firebase";
 import firebase from "firebase";
 import { AppContext } from "../../AppContext";
 
-const Chat = (props) => {
+const Chat = () => {
   //States to store db data
   const [roomName, setRoomName] = useState("");
   const [messages, setMessages] = useState([]);
@@ -61,6 +61,11 @@ const Chat = (props) => {
     }
   }, [roomId]);
 
+  //Scroll into view the last message always
+  useEffect(() => {
+    scrollToLastMsg();
+  }, [messages]);
+
   //Saving user input data to state
   const inputMsgHandler = (e) => {
     setInputMsg(e.target.value);
@@ -70,14 +75,16 @@ const Chat = (props) => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
-    db.collection("rooms").doc(roomId).collection("messages").add({
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      message: inputMsg,
-      uid: user.uid,
-      name: user.name,
-      photo: user.photo,
-      email: user.email,
-    });
+    if (inputMsg.length > 0) {
+      db.collection("rooms").doc(roomId).collection("messages").add({
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        message: inputMsg,
+        uid: user.uid,
+        name: user.name,
+        photo: user.photo,
+        email: user.email,
+      });
+    }
 
     setInputMsg("");
   };
@@ -108,13 +115,26 @@ const Chat = (props) => {
     }
   });
 
+  //For referencing the most bottom element
+  let msgEnd = useRef(null);
+
+  //Scroll to view the last message
+  const scrollToLastMsg = () => {
+    if (msgEnd.current) {
+      msgEnd.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   //For test purpose
   console.log(messages);
 
   return (
     <div className={style.chat}>
       <h1>{roomName}</h1>
-      <div className={style.chatBox}>{displayMessages}</div>
+      <div className={style.chatBox}>
+        {displayMessages}
+        <div className={style.msgEnd} ref={msgEnd}></div>
+      </div>
       <div className={style.inputBoxContainer}>
         <div className={style.inputBox}>
           <form onSubmit={formSubmitHandler}>
