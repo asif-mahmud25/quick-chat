@@ -7,7 +7,7 @@ import { db } from "../../firebase";
 const AddRoomModal = () => {
   const [roomModal, setRoomModal] = useContext(ModalContext);
 
-  const [rooName, setRoomName] = useState("");
+  const [roomName, setRoomName] = useState("");
 
   let modalStyle = style.modalBgHide;
 
@@ -24,10 +24,11 @@ const AddRoomModal = () => {
     setRoomName(e.target.value);
   };
 
+  //Adding the room in the firebase db
   const addRoom = () => {
-    if (rooName.length > 0) {
+    if (roomName.length > 0) {
       db.collection("rooms").add({
-        name: rooName,
+        name: roomName,
       });
 
       setRoomModal(false);
@@ -42,7 +43,7 @@ const AddRoomModal = () => {
         <input
           type="text"
           placeholder="Enter room name"
-          value={rooName}
+          value={roomName}
           onChange={inputChageHandler}
         />
         <button onClick={addRoom}>Add Room</button>
