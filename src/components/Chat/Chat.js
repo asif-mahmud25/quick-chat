@@ -27,7 +27,9 @@ const Chat = () => {
         .collection("rooms")
         .doc(roomId)
         .onSnapshot((snapshot) => {
-          setRoomName(snapshot.data().name);
+          if (snapshot.data()) {
+            setRoomName(snapshot.data().name);
+          }
         });
 
       return () => {
@@ -76,14 +78,24 @@ const Chat = () => {
     e.preventDefault();
 
     if (inputMsg.length > 0) {
-      db.collection("rooms").doc(roomId).collection("messages").add({
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        message: inputMsg,
-        uid: user.uid,
-        name: user.name,
-        photo: user.photo,
-        email: user.email,
-      });
+      db.collection("rooms")
+        .doc(roomId)
+        .get()
+        .then((res) => {
+          //Checking if the room exists, if exists add message
+          if (res.exists) {
+            db.collection("rooms").doc(roomId).collection("messages").add({
+              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+              message: inputMsg,
+              uid: user.uid,
+              name: user.name,
+              photo: user.photo,
+              email: user.email,
+            });
+          } else {
+            console.log("room does not exist");
+          }
+        });
     }
 
     setInputMsg("");

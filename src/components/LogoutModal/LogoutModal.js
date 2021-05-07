@@ -3,6 +3,7 @@ import style from "./LogoutModal.module.css";
 import { ModalContext } from "../../ModalContext";
 import { AppContext } from "../../AppContext";
 import { auth } from "../../firebase";
+import { useHistory } from "react-router-dom";
 
 const LogoutModal = () => {
   const [, , logoutModal, setLogoutModal] = useContext(ModalContext);
@@ -14,6 +15,8 @@ const LogoutModal = () => {
   if (logoutModal) {
     modalStyle = style.modalBgShow;
   }
+
+  let history = useHistory();
 
   //Cancel logout
   const closeModal = () => {
@@ -36,6 +39,9 @@ const LogoutModal = () => {
 
         //Remove user data from session storage
         sessionStorage.removeItem("user");
+
+        //Moving back to home url after logout
+        history.push("/");
       })
       .catch((err) => {
         console.log("log out failed!");
