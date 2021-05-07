@@ -5,6 +5,7 @@ import Room from "../Room/Room";
 import { AppContext } from "../../AppContext";
 import { db } from "../../firebase";
 import { ModalContext } from "../../ModalContext";
+import LoaderOne from "../LoaderOne/LoaderOne";
 
 const Sidebar = () => {
   const [user, setUser] = useContext(AppContext);
@@ -37,10 +38,15 @@ const Sidebar = () => {
     };
   }, []);
 
+  //Initially loader will be shown while data is fetching
+  let roomsDisplay = <LoaderOne />;
+
   //Rooms with data from firebase db
-  let roomsDisplay = rooms.map((el) => {
-    return <Room key={el.id} id={el.id} name={el.data.name} />;
-  });
+  if (rooms.length > 0) {
+    roomsDisplay = rooms.map((el) => {
+      return <Room key={el.id} id={el.id} name={el.data.name} />;
+    });
+  }
 
   //Show the logout modal
   const logout = () => {
