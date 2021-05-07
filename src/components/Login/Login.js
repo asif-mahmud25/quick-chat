@@ -39,6 +39,7 @@ const Login = () => {
         <button className={style.ripple} onClick={userLogin}>
           Sign in with Google
         </button>
+        <p>Designed and developed by Asif Mahmud</p>
       </div>
       <div className={style.decorationTop}>
         <img src={topSideArt} alt="" />

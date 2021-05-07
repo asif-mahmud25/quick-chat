@@ -45,6 +45,14 @@
   cursor: pointer;
 }
 
+.loginMain p {
+  width: 420px;
+  text-align: center;
+  font-size: 14px;
+  color: #aaaaaa;
+  margin-top: 22px;
+}
+
 .decorationTop {
   position: absolute;
   top: 0px;
