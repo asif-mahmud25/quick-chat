@@ -40,6 +40,7 @@ const Login = () => {
           Sign in with Google
         </button>
         <p>Designed and developed by Asif Mahmud</p>
+        <p>asifmahmud.officials@gmail.com</p>
       </div>
       <div className={style.decorationTop}>
         <img src={topSideArt} alt="" />
