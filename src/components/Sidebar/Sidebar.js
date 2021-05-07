@@ -45,18 +45,18 @@ const Sidebar = () => {
 
   //Logout funtion
   const logout = () => {
-    auth.signOut();
+    // auth.signOut();
+    // //Setting the state to initial state
+    // setUser({
+    //   uid: null,
+    //   name: "",
+    //   photo: "",
+    //   email: "",
+    // });
+    // //Remove user data from session storage
+    // sessionStorage.removeItem("user");
 
-    //Setting the state to initial state
-    setUser({
-      uid: null,
-      name: "",
-      photo: "",
-      email: "",
-    });
-
-    //Remove user data from session storage
-    sessionStorage.removeItem("user");
+    setLogoutModal(true);
   };
 
   //Add room modal appear

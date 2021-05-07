@@ -4,11 +4,13 @@ import Chat from "../Chat/Chat";
 import Sidebar from "../Sidebar/Sidebar";
 import style from "./Layout.module.css";
 import { Route, Switch, Redirect } from "react-router-dom";
+import LogoutModal from "../LogoutModal/LogoutModal";
 
 const Layout = () => {
   return (
     <div className={style.layout}>
       <AddRoomModal />
+      <LogoutModal />
       <div className={style.sidebarContainer}>
         <Sidebar />
       </div>
