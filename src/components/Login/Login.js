@@ -13,7 +13,7 @@ const Login = () => {
     auth
       .signInWithPopup(provider)
       .then((res) => {
-        console.log(res);
+        console.log("logged in");
 
         let userData = {
           uid: res.user.uid,

@@ -22,21 +22,25 @@ const LogoutModal = () => {
 
   //Logout the user
   const logoutUser = () => {
-    auth.signOut();
+    auth
+      .signOut()
+      .then((res) => {
+        console.log("logged out");
+        //Setting the state to initial state
+        setUser({
+          uid: null,
+          name: "",
+          photo: "",
+          email: "",
+        });
 
-    //Setting the state to initial state
-    setUser({
-      uid: null,
-      name: "",
-      photo: "",
-      email: "",
-    });
-
-    //Close the logout modal
-    setLogoutModal(false);
-
-    //Remove user data from session storage
-    sessionStorage.removeItem("user");
+        //Remove user data from session storage
+        sessionStorage.removeItem("user");
+      })
+      .catch((err) => {
+        console.log("log out failed!");
+        console.log(err);
+      });
   };
 
   return (
