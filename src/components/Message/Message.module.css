@@ -57,11 +57,13 @@
 
 .messageTxt {
   font-size: 16px;
+  word-break: break-all;
   color: black;
 }
 
 .messageTxtUser {
   font-size: 16px;
+  word-break: break-all;
   color: #f0f0f0;
 }
 

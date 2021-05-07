@@ -8,8 +8,8 @@ const Room = (props) => {
   let roomName = props.name;
 
   //Character limit for room names
-  if (roomName.length > 20) {
-    roomName = roomName.slice(0, 17) + "...";
+  if (roomName.length > 22) {
+    roomName = roomName.slice(0, 20) + "...";
   }
 
   let id = props.id;
@@ -38,8 +38,8 @@ const Room = (props) => {
     lastMsg = messages[0].message;
 
     //Character limit set for sidebar last message
-    if (lastMsg.length > 22) {
-      lastMsg = lastMsg.slice(0, 20) + "...";
+    if (lastMsg.length > 24) {
+      lastMsg = lastMsg.slice(0, 22) + "...";
     }
   }
 

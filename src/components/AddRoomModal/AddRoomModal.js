@@ -43,6 +43,7 @@ const AddRoomModal = () => {
         <input
           type="text"
           placeholder="Enter room name"
+          maxLength="60"
           value={roomName}
           onChange={inputChageHandler}
         />

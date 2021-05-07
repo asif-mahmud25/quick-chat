@@ -89,6 +89,13 @@ const Chat = () => {
     setInputMsg("");
   };
 
+  //Character limit for room name
+  let displayRoomName = roomName;
+  if (displayRoomName.length > 44) {
+    displayRoomName = displayRoomName.slice(0, 42) + "...";
+  }
+
+  //Displaying messages based on msgFrom
   let displayMessages = messages.map((el) => {
     if (el.data.email === user.email) {
       return (
@@ -127,7 +134,7 @@ const Chat = () => {
 
   return (
     <div className={style.chat}>
-      <h1>{roomName}</h1>
+      <h1>{displayRoomName}</h1>
       <div className={style.chatBox}>
         {displayMessages}
         <div className={style.msgEnd} ref={msgEnd}></div>
@@ -138,6 +145,7 @@ const Chat = () => {
             <input
               type="text"
               placeholder="Enter your message here"
+              maxLength="600"
               value={inputMsg}
               onChange={inputMsgHandler}
             />
