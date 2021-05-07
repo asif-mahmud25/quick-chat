@@ -125,9 +125,6 @@ const Chat = () => {
     }
   };
 
-  //For test purpose
-  console.log(messages);
-
   return (
     <div className={style.chat}>
       <h1>{roomName}</h1>

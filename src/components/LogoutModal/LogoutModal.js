@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import style from "./LogoutModal.module.css";
 import { ModalContext } from "../../ModalContext";
 import { AppContext } from "../../AppContext";

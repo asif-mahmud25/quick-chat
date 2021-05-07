@@ -30,7 +30,6 @@ const Sidebar = () => {
         });
 
         setRooms(roomData);
-        console.log(roomData);
       });
 
     return () => {

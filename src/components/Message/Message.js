@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./Message.module.css";
-import userIcon from "../../assets/room-icon.svg";
 
 const Message = (props) => {
   let messageContainer = style.messageContainer;
