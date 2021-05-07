@@ -3,7 +3,7 @@ import style from "./Sidebar.module.css";
 import secondaryLogo from "../../assets/secondary-logo.svg";
 import Room from "../Room/Room";
 import { AppContext } from "../../AppContext";
-import { auth, db } from "../../firebase";
+import { db } from "../../firebase";
 import { ModalContext } from "../../ModalContext";
 
 const Sidebar = () => {
@@ -43,19 +43,8 @@ const Sidebar = () => {
     return <Room key={el.id} id={el.id} name={el.data.name} />;
   });
 
-  //Logout funtion
+  //Show the logout modal
   const logout = () => {
-    // auth.signOut();
-    // //Setting the state to initial state
-    // setUser({
-    //   uid: null,
-    //   name: "",
-    //   photo: "",
-    //   email: "",
-    // });
-    // //Remove user data from session storage
-    // sessionStorage.removeItem("user");
-
     setLogoutModal(true);
   };
 
