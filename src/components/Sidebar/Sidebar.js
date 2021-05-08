@@ -17,7 +17,7 @@ const Sidebar = () => {
     ModalContext
   );
 
-  //Attaching firebase realtime db listener
+  //Attaching firebase realtime db listener to fetch the rooms in realtime
   useEffect(() => {
     const unsubscribe = db
       .collection("rooms")
