@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Message from "../Message/Message";
 import style from "./Chat.module.css";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { db } from "../../firebase";
 import firebase from "firebase";
 import { AppContext } from "../../AppContext";
@@ -17,6 +17,9 @@ const Chat = () => {
   //Getting the room id from route link
   let roomId = useParams().roomId;
 
+  //Need history to divert user when going into unwanted links
+  let history = useHistory();
+
   //Using global context to get user data
   const [user, setUser] = useContext(AppContext);
 
@@ -27,8 +30,12 @@ const Chat = () => {
         .collection("rooms")
         .doc(roomId)
         .onSnapshot((snapshot) => {
-          if (snapshot.data()) {
+          //If the room exists then set the room name
+          if (snapshot.exists) {
             setRoomName(snapshot.data().name);
+          } else {
+            //Redirect to home for unwanted urls
+            history.replace("/");
           }
         });
 

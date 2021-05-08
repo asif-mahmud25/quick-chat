@@ -41,7 +41,7 @@ const LogoutModal = () => {
         sessionStorage.removeItem("user");
 
         //Moving back to home url after logout
-        history.push("/");
+        history.replace("/");
       })
       .catch((err) => {
         console.log("log out failed!");
