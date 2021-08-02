@@ -44,6 +44,8 @@ function App() {
         });
       }
     });
+
+    // eslint-disable-next-line
   }, []);
 
   let appDisplay = <Login />;

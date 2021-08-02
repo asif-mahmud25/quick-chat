@@ -8,14 +8,12 @@ import { ModalContext } from "../../ModalContext";
 import LoaderOne from "../LoaderOne/LoaderOne";
 
 const Sidebar = () => {
-  const [user, setUser] = useContext(AppContext);
+  const [user] = useContext(AppContext);
 
   const [rooms, setRooms] = useState([]);
 
   //For modal state
-  const [roomModal, setRoomModal, logoutModal, setLogoutModal] = useContext(
-    ModalContext
-  );
+  const [, setRoomModal, , setLogoutModal] = useContext(ModalContext);
 
   //Attaching firebase realtime db listener to fetch the rooms in realtime
   useEffect(() => {
@@ -66,7 +64,7 @@ const Sidebar = () => {
       </div>
       <div className={style.userSection}>
         <div className={style.userInfo}>
-          <img src={user.photo} alt="User Image" />
+          <img src={user.photo} alt="user" />
           <h1>{user.name}</h1>
           <p onClick={logout}>Logout</p>
         </div>

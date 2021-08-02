@@ -21,7 +21,7 @@ const Chat = () => {
   let history = useHistory();
 
   //Using global context to get user data
-  const [user, setUser] = useContext(AppContext);
+  const [user] = useContext(AppContext);
 
   //To show the room name at the top
   useEffect(() => {
@@ -43,6 +43,8 @@ const Chat = () => {
         unsubscribe();
       };
     }
+
+    // eslint-disable-next-line
   }, [roomId]);
 
   //To get the messages in real time
