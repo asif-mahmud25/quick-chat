@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
 import style from "./LogoutModal.module.css";
 import { ModalContext } from "../../ModalContext";
-import { AppContext } from "../../AppContext";
 import { auth } from "../../firebase";
 
 const LogoutModal = () => {
   const [, , logoutModal, setLogoutModal] = useContext(ModalContext);
-
-  const [user, setUser] = useContext(AppContext);
 
   let modalStyle = style.modalBgHide;
 
@@ -24,19 +21,7 @@ const LogoutModal = () => {
   const logoutUser = () => {
     auth
       .signOut()
-      .then((res) => {
-        console.log("logged out");
-        //Setting the state to initial state
-        setUser({
-          uid: null,
-          name: "",
-          photo: "",
-          email: "",
-        });
-
-        //Remove user data from session storage
-        sessionStorage.removeItem("user");
-      })
+      .then(() => {})
       .catch((err) => {
         console.log("log out failed!");
         console.log(err);

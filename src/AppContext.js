@@ -10,9 +10,9 @@ export const AppContextProvider = (props) => {
     email: "",
   };
 
-  //Getting user info from sessionStorage
-  if (sessionStorage.getItem("user")) {
-    let data = sessionStorage.getItem("user");
+  //Getting user info from localStorage
+  if (localStorage.getItem("user")) {
+    let data = localStorage.getItem("user");
     let userData = JSON.parse(data);
     initialState = userData;
   } else {
