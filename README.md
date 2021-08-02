@@ -28,23 +28,7 @@ Please checkout the live app here [Quick Chat](https://quick-chat-9ab5a.web.app/
 
 3. Create a Firebase project. Enable Cloud Firestore and Google Authentication for the project. Then register a web app.
 
-4. Create a `firebase.js` file in `src` folder and use the following code in this file using your own firebase project app config:
-
-```
-import firebase from "firebase";
-
-const firebaseConfig = {
- //use your own firebase project app config
-};
-
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-const db = firebaseApp.firestore();
-const auth = firebase.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
-
-export { db, auth, provider };
-
-```
+4. Create a `.env` file in the project root. Use your Firebase app config data in `.env` file. Checkout `firebase.js` in the `src` folder to understand what is being used from the `.env` file.
 
 5. Run `$ npm start` in your terminal to see the project in localhost.
 
