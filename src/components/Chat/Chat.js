@@ -3,7 +3,7 @@ import Message from "../Message/Message";
 import style from "./Chat.module.css";
 import { useHistory, useParams } from "react-router-dom";
 import { db } from "../../firebase";
-import firebase from "firebase";
+import firebase from "firebase/app";
 import { AppContext } from "../../AppContext";
 
 const Chat = () => {
